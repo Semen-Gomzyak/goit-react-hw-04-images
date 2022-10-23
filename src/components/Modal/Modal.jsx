@@ -6,20 +6,20 @@ import { Overlay, ModalBlock } from './Modal.styled';
 const rootRef = document.querySelector('#root');
 
 export function Modal({ closeModal, modalCard }) {
-  useEffect(() => {
-    window.addEventListener('keydown', closeModalByEsc);
-  }, [closeModal]);
-
-  const closeModalByBackdrop = e => {
-    if (e.target === e.currentTarget) {
-      closeModal();
-    }
-  };
-
   const closeModalByEsc = e => {
     e.preventDefault();
 
     if (e.code === 'Escape') {
+      closeModal();
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('keydown', closeModalByEsc);
+  }, [closeModal, closeModalByEsc]);
+
+  const closeModalByBackdrop = e => {
+    if (e.target === e.currentTarget) {
       closeModal();
     }
   };
