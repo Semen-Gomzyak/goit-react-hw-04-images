@@ -6,6 +6,11 @@ import { Overlay, ModalBlock } from './Modal.styled';
 const rootRef = document.querySelector('#root');
 
 export function Modal({ closeModal, modalCard }) {
+  useEffect(() => {
+    window.addEventListener('keydown', closeModalByEsc);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [closeModal]);
+
   const closeModalByEsc = e => {
     e.preventDefault();
 
@@ -13,10 +18,6 @@ export function Modal({ closeModal, modalCard }) {
       closeModal();
     }
   };
-
-  useEffect(() => {
-    window.addEventListener('keydown', closeModalByEsc);
-  }, [closeModal, closeModalByEsc]);
 
   const closeModalByBackdrop = e => {
     if (e.target === e.currentTarget) {
