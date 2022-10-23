@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState, useEffect } from 'react';
+import React, {  useState, useEffect } from 'react'; //вернуть useLayoutEffect
 import { ToastContainer, toast } from 'react-toastify';
 import { AppContainer } from './App.styled';
 import { SearchbarForm } from './Searchbar/Searchbar';
