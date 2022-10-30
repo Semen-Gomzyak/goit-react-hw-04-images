@@ -27,7 +27,7 @@ export function App() {
       );
       return respons.data.hits;
     };
-
+    
     try {
       setStatus('pending');
       getInfoFromApi(searchQueryString, page).then(res => {

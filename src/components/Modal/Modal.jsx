@@ -17,6 +17,8 @@ export function Modal({ closeModal, modalCard }) {
     if (e.code === 'Escape') {
       closeModal();
     }
+
+    return window.removeEventListener('keydown', closeModalByEsc);
   };
 
   const closeModalByBackdrop = e => {
